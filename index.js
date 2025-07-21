@@ -1,22 +1,24 @@
-// 1. Sum of Array Elements
-function sumArray(arr) {
-  var sum = 0;
-  for (var i = 0; i < arr.length; i++) 
-    sum += arr[i];
-  return sum;
-}
-console.log("Sum:", sumArray([1, 2, 3, 4, 5]));
+let numbers = [1, 2, 3, 4, 6, 5, 7, 8, 9];
+let moreNumbers = [2, 4, 6, 8, 10, 12];
+let obj1 = { a: 1, b: 2, c: 3 };
+let obj2 = { c: 4, d: 5, e: 6 };
+// // 1. Sum of Array Elements
+// function sumArray(arr) {
+//   var sum = 0;
+//   for (var i = 0; i < arr.length; i++)
+//     sum += arr[i];
+//   return sum;
+// }
+// console.log("Sum:", sumArray([numbers]));
 
 
-// 2. Find Maximum Value
-function findMax(arr) {
-  var max = arr[0];
-  for (var i = 1; i < arr.length; i++) {
-    if (arr[i] > max) max = arr[i];
-  }
-  return max;
-}
-console.log("Max:", findMax([1, 7, 3, 9, 2]));
+// // 2. Find Maximum Value
+// const findMax = (arr) => {
+//   return Math.max(...arr);
+// };
+
+// console.log("Max = ", findMax(numbers));
+
 
 
 // 3. Remove Duplicates
@@ -27,109 +29,89 @@ function removeDuplicates(arr) {
   }
   return result;
 }
-console.log("Remove Duplicates:", removeDuplicates([1, 2, 2, 3, 4, 4]));
+console.log("Remove Duplicates:", removeDuplicates([numbers]));
 
 
-// 4. Merge Two Arrays (without duplicates)
-function mergeArrays(arr1, arr2) {
-  var combined = arr1.concat(arr2);
-  return removeDuplicates(combined);
-}
-console.log("Merge Arrays:", mergeArrays([1, 2], [2, 3, 4]));
+// // 4. Merge Two Arrays (without duplicates)
+// const mergeArrays = (arr1, arr2) => {
+//   let mergedArray = [...arr1, ...arr2];
+//   return removeDuplicates(mergedArray);
+// };
+
+// console.log("Merged Array = ", mergeArrays(numbers, moreNumbers));
 
 
-// 5. Array Chunking
-function chunkArray(arr, size) {
-  var chunks = [];
-  for (var i = 0; i < arr.length; i += size) {
-    var chunk = [];
-    for (var j = i; j < i + size && j < arr.length; j++) {
-      chunk.push(arr[j]);
-    }
-    chunks.push(chunk);
-  }
-  return chunks;
-}
-console.log("Chunk Array:", chunkArray([1, 2, 3, 4, 5], 2));
+
+// // // 5. Array Chunking
+// const chunkArray = (arr, size) => {
+//   let chunkedArray = [];
+//   for (let i = 0; i < arr.length; i += size) {
+//     chunkedArray.push(arr.slice(i, i + size));
+//   }
+//   return chunkedArray;
+// };
+
+// console.log("Chunked Array = ", chunkArray(numbers, 3));
 
 
-// 6. Object Key Count
-function countKeys(obj) {
-  var count = 0;
-  for (var key in obj) count++;
-  return count;
-}
-console.log("Key Count:", countKeys({ a: 1, b: 2, c: 3 }));
 
 
-// 7. Merge Two Objects
-function mergeObjects(obj1, obj2) {
-  var result = {};
-  for (var key in obj1) result[key] = obj1[key];
-  for (var key in obj2) result[key] = obj2[key];
-  return result;
-}
-console.log("Merge Objects:", mergeObjects({ a: 1 }, { a: 2, b: 3 }));
+// // 6. Object Key Count
+// const countObjectKeys=(obj)=> {
+//   return Object.keys(obj).length;
+// };
+// console.log("Object Key Count:", countObjectKeys({obj1}));
 
 
-// 8. Filter Object Properties
-function filterKeys(obj, keysToKeep) {
-  var result = {};
-  for (var i = 0; i < keysToKeep.length; i++) {
-    var key = keysToKeep[i];
-    if (obj.hasOwnProperty(key)) result[key] = obj[key];
-  }
-  return result;
-}
-console.log("Filter Keys:", filterKeys({ a: 1, b: 2, c: 3 }, ["a", "c"]));
+// // 7. Merge Two Objects
+// function mergeObjects(obj1, obj2) {
+//   return {...obj1,...obj2};
+// };
+// console.log("Merge Objects:", mergeObjects(obj1,obj2));
 
 
-// 9. Convert Object to Array
-function objectToArray(obj) {
-  var result = [];
-  for (var key in obj) result.push([key, obj[key]]);
-  return result;
-}
-console.log("Object to Array:", objectToArray({ x: 10, y: 20 }));
+// // 8. Filter Object Properties
+// function filterKeys(obj, keys) {
+//   return Object.fromEntries(
+//     Object.entries(obj).filter(([key])=>keys.include(key))  
+//   );
+// };
+// console.log("Filter Keys:", filterKeys(obj1,["a", "c"]));
 
 
-// 10. Deep Clone Object
-function deepClone(obj) {
-  var copy;
-  if (typeof obj !== 'object' || obj === null) return obj;
-  copy = Array.isArray(obj) ? [] : {};
-  for (var key in obj) {
-    copy[key] = deepClone(obj[key]);
-  }
-  return copy;
-}
-var original = { a: 1, b: { c: 2 } };
-var cloned = deepClone(original);
-cloned.b.c = 99;
-console.log("Deep Clone - original.b.c:", original.b.c);
+// // 9. Convert Object to Array
+// function objectToArray(obj) {
+//   return Object.entries(obj);
+// };
+// console.log("Object to Array:", objectToArray({ obj1 }));
 
 
-// 11. Sum with Rest Operator
-function sum() {
-  var total = 0;
-  for (var i = 0; i < arguments.length; i++) total += arguments[i];
-  return total;
-}
-console.log("Sum (rest):", sum(1, 2, 3, 4));
+// // 10. Deep Clone Object
+// const original = {
+//   name: "Ram",
+//   class: 2,
+//   roll: 5,
+// };
+// const deepClone = (obj) => {
+//   const copy = JSON.parse(JSON.stringify(obj));
+//   return copy;
+// };
+// console.log("Deep Cloned Project=", deepClone(original));
+
+
+// // 11. Sum with Rest Operator
+// const sumWithRest = (...numbers) => {
+//   return numbers.reduce((acc, curr) => acc + curr, 0);
+// };
+
+// console.log("Sum with Rest Operator = ", sumWithRest(1, 2, 3, 4, 5));
 
 
 // 12. Concatenate Arrays with Spread (basic way)
-function concatArrays() {
-  var result = [];
-  for (var i = 0; i < arguments.length; i++) {
-    var arr = arguments[i];
-    for (var j = 0; j < arr.length; j++) {
-      result.push(arr[j]);
-    }
-  }
-  return result;
-}
-console.log("Concat Arrays:", concatArrays([1, 2], [3, 4], [5]));
+function concatenateArrays() {
+  return[].concat(...arrays);
+    };
+console.log("Concatenated Arrays:", concatenateArrays([1, 2], [3, 4], [5]));
 
 
 // 13. Copy and Modify Object
@@ -242,5 +224,4 @@ function deepMerge(obj1, obj2) {
   return result;
 }
 console.log("Deep Merge:", deepMerge({ a: { b: 1 } }, { a: { c: 2 } }));
- 
-   
+
